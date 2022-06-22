@@ -20,7 +20,7 @@ inputs:
   trello-card-id:
     description: Trello card id
     required: true 
-  trello-card-message:
+  trello-message:
     description: message
     required: true
 
