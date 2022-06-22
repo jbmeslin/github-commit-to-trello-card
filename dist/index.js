@@ -8737,13 +8737,13 @@ const trelloMessage = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('trell
 const trelloCardAction = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('trello-card-action', {required: true});
 
 
-function getCardNumber(message) {
+function getCardNumber() {
     return trelloCardId;
 }
 
 async function getCardOnBoard(board, message) {
     console.log(`getCardOnBoard(${board}, ${message})`);
-    let card = getCardNumber(message);
+    let card = getCardNumber();
     if (card && card.length > 0) {
         let url = `https://trello.com/1/boards/${board}/cards/${card}`
         return await axios__WEBPACK_IMPORTED_MODULE_0__.get(url, {

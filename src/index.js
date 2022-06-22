@@ -14,13 +14,13 @@ const trelloMessage = core.getInput('trello-message', {required: true});
 const trelloCardAction = core.getInput('trello-card-action', {required: true});
 
 
-function getCardNumber(message) {
+function getCardNumber() {
     return trelloCardId;
 }
 
 async function getCardOnBoard(board, message) {
     console.log(`getCardOnBoard(${board}, ${message})`);
-    let card = getCardNumber(message);
+    let card = getCardNumber();
     if (card && card.length > 0) {
         let url = `https://trello.com/1/boards/${board}/cards/${card}`
         return await axios.get(url, {
