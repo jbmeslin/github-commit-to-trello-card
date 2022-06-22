@@ -8732,15 +8732,18 @@ const regexPullRequest = /Merge pull request \#\d+ from/g;
 const trelloApiKey = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('trello-api-key', { required: true });
 const trelloAuthToken = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('trello-auth-token', { required: true });
 const trelloBoardId = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('trello-board-id', { required: true });
+const trelloCardId = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('trello-card-id', { required: true });
 const trelloCardAction = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('trello-card-action', { required: true });
 const trelloListNameCommit = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('trello-list-name-commit', { required: true });
 const trelloListNamePullRequestOpen = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('trello-list-name-pr-open', { required: false });
 const trelloListNamePullRequestClosed = _actions_core__WEBPACK_IMPORTED_MODULE_1__.getInput('trello-list-name-pr-closed', { required: false });
 
 function getCardNumber(message) {
-  console.log(`getCardNumber(${message})`);
-  let ids = message && message.length > 0 ? message.replace(regexPullRequest, "").match(/\#\d+/g) : [];
-  return ids && ids.length > 0 ? ids[ids.length-1].replace('#', '') : null;
+
+  return trelloCardId;
+  // console.log(`getCardNumber(${message})`);
+  // let ids = message && message.length > 0 ? message.replace(regexPullRequest, "").match(/\#\d+/g) : [];
+  // return ids && ids.length > 0 ? ids[ids.length-1].replace('#', '') : null;
 }
 
 async function getCardOnBoard(board, message) {
