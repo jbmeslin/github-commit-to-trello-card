@@ -1,4 +1,4 @@
-author: Dale Zak
+author: Dale Zak and Nsd
 name: github-commit-to-trello-card
 description: GitHub Action to attach GitHub commits and pull requests to a Trello card
 branding:
@@ -17,15 +17,13 @@ inputs:
   trello-card-action:
     description: Trello card action, either "Comment" or "Attachment"
     required: true  
-  trello-list-name-commit:
-    description: Trello list name for new commit, for example "Doing", "In Progress", etc
+  trello-card-id:
+    description: Trello card id
     required: true 
-  trello-list-name-pr-open:
-    description: Trello list name for open pull request, for example "Reviewing", "In Review", etc
-    required: false 
-  trello-list-name-pr-closed:
-    description: Trello list name for closed pull request, for example "Testing", "Done", etc
-    required: false  
+  trello-card-message:
+    description: message
+    required: true
+
 runs:
   using: node12
   main: dist/index.js
